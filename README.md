@@ -48,5 +48,5 @@ Drop static HTML into staticpages/pages, formatted similarly to [pages/example.h
 You can add links to any page in your templates with this named path:
 
 ```python
-<a href="{% url 'static_pages_page', 'example' %}">Example Static Page</a>
+<a href="{% url 'static_pages_page' 'example' %}">Example Static Page</a>
 ```
