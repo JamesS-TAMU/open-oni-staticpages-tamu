@@ -27,7 +27,10 @@ def page(request, pagename):
         warnings.warn("Attempt to render nonexistent page %s (file: %s)" % (pagename, pagefile))
         raise Http404
 
-    text = open(pagefile, "r").read()
-    tmpl = template.Template(Prefix + text + Suffix)
-    c = template.RequestContext(request, {})
+    text = open(pagefile, "r").readlines()
+    page_title = text[0]
+    body = "\n".join(text[2:])
+
+    tmpl = template.Template(Prefix + body + Suffix)
+    c = template.RequestContext(request, {"page_title": page_title})
     return HttpResponse(tmpl.render(c))
