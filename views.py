@@ -1,5 +1,4 @@
 import os
-import re
 import warnings
 
 from django.shortcuts import render
@@ -11,12 +10,6 @@ Prefix = "{% extends '__l_main.html' %}{% load static from staticfiles %}{% bloc
 Suffix = "</div><!-- end id:std_box -->\n{% endblock %}"
 
 def page(request, pagename):
-    # This makes sure we don't have stupid characters in the page name
-    m = re.search('[^\w_-]', pagename)
-    if m != None:
-        warnings.warn("Attempt to render invalid pagename %s" % pagename)
-        raise Http404
-
     # We allow subdirectories via a magic double-underscore
     pagename = re.sub('__', '/', pagename)
 
