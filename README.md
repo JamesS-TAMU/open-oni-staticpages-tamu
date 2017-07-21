@@ -50,3 +50,12 @@ You can add links to any page in your templates with this named path:
 ```python
 <a href="{% url 'static_pages_page' 'example' %}">Example Static Page</a>
 ```
+
+Settings
+---
+
+If you need your HTML files to come from a different location, you can alter
+your settings file (`onisite/settings_local.py`) to include a path to the new
+location, e.g.:
+
+    STATIC_PAGES_PATH="/opt/openoni/themes/oregon/staticpages"
