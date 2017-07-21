@@ -5,6 +5,7 @@ import warnings
 from django.shortcuts import render
 from django import template
 from django.http import Http404, HttpResponse
+from django.conf import settings
 
 # Prefix and Suffix define constant strings we use when rendering any static page
 Prefix = "{% extends '__l_main.html' %}{% load static from staticfiles %}{% block content %}<div id=\"std_box\">"
@@ -15,8 +16,13 @@ def page(request, pagename):
     pagename = re.sub('__', '/', pagename)
 
     # Check for the existence of, and then read, the requested template
-    pagespath = os.path.dirname(os.path.abspath(__file__))
-    pagefile = os.path.join(pagespath, "pages", pagename + ".html")
+    if hasattr(settings, "STATIC_PAGES_PATH"):
+        pagespath = settings.STATIC_PAGES_PATH
+    else:
+        pagespath = os.path.dirname(os.path.abspath(__file__))
+        pagespath = os.path.join(pagespath, "pages")
+
+    pagefile = os.path.join(pagespath, pagename + ".html")
     if not os.path.exists(pagefile):
         warnings.warn("Attempt to render nonexistent page %s (file: %s)" % (pagename, pagefile))
         raise Http404
