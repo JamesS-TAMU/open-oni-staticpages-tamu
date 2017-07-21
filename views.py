@@ -15,6 +15,10 @@ def page(request, pagename):
     return subpage(request, None, pagename)
 
 def subpage(request, subdir, pagename):
+    # Strip off pagename's optional slash
+    if pagename[-1] == "/":
+        pagename = pagename[:-1]
+
     # Check for the existence of, and then read, the requested template
     if hasattr(settings, "STATIC_PAGES_PATH"):
         pagespath = settings.STATIC_PAGES_PATH
