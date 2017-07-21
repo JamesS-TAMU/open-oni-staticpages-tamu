@@ -9,7 +9,7 @@ Usage
 
 Download the repository into the Open ONI's `onisite/plugins` directory as `staticpages`:
 
-    git clone https://github.com/open-oni/plugin_staticpages.git
+    git clone https://github.com/open-oni/plugin_staticpages.git onisite/plugins/staticpages
 
 Add the plugin to your `INSTALLED_APPS` list:
 
