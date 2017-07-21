@@ -12,9 +12,9 @@ Prefix = "{% extends '__l_main.html' %}{% load static from staticfiles %}{% bloc
 Suffix = "</div><!-- end id:std_box -->\n{% endblock %}"
 
 def page(request, pagename):
-    # We allow subdirectories via a magic double-underscore
-    pagename = re.sub('__', '/', pagename)
+    return subpage(request, None, pagename)
 
+def subpage(request, subdir, pagename):
     # Check for the existence of, and then read, the requested template
     if hasattr(settings, "STATIC_PAGES_PATH"):
         pagespath = settings.STATIC_PAGES_PATH
@@ -22,7 +22,11 @@ def page(request, pagename):
         pagespath = os.path.dirname(os.path.abspath(__file__))
         pagespath = os.path.join(pagespath, "pages")
 
-    pagefile = os.path.join(pagespath, pagename + ".html")
+    if subdir is not None:
+        pagefile = os.path.join(pagespath, subdir, pagename + ".html")
+    else:
+        pagefile = os.path.join(pagespath, pagename + ".html")
+
     if not os.path.exists(pagefile):
         warnings.warn("Attempt to render nonexistent page %s (file: %s)" % (pagename, pagefile))
         raise Http404
