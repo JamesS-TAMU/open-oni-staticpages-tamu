@@ -8,8 +8,8 @@ from django.http import Http404, HttpResponse
 from django.conf import settings
 
 # Prefix and Suffix define constant strings we use when rendering any static page
-Prefix = "{% extends '__l_main.html' %}{% load static from staticfiles %}{% block content %}<div id=\"std_box\">"
-Suffix = "</div><!-- end id:std_box -->\n{% endblock %}"
+Prefix = "{% extends '__l_main.html' %}{% load static from staticfiles %}{% block subcontent %}<div id=\"std_box\">"
+Suffix = "</div><!-- end id:std_box -->\n{% endblock subcontent %}"
 
 def page(request, pagename):
     return subpage(request, None, pagename)
