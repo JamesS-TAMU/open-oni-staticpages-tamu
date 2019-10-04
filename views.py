@@ -35,7 +35,7 @@ def subpage(request, subdir, pagename):
         warnings.warn("Attempt to render nonexistent page %s (file: %s)" % (pagename, pagefile))
         raise Http404
 
-    text = open(pagefile, "r").readlines()
+    text = open(pagefile, "rb").read().decode('utf8').split("\n")
     page_title = text[0]
     body = "\n".join(text[2:])
 
