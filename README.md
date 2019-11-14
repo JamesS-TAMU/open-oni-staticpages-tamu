@@ -4,6 +4,21 @@ Static Pages ONI plugin
 Provides the ability to drop HTML files into a special directory and have ONI
 serve them up at an arbitrary URL
 
+Compatibility
+---
+
+The "master" branch should not be considered stable.  Unlike the core Open ONI
+repository, plugins don't warrant the extra overhead of having separate
+development branches, release branches, etc.  Instead, it is best to find a tag
+that works and stick with that tag.
+
+- Static Pages v2.0.2 and prior only work with Python 2 and Django 1.11 and
+  prior
+  - Therefore these versions of the Static Pages plugin are only compatible up
+    to (and including) ONI v0.11.0
+- Static Pages releases beyond v2.0.2 require Python 3 and Django 2.2.  If you
+  need this plugin to work with ONI v0.11.0 or prior, stick with v2.0.2.
+
 Usage
 ---
 
