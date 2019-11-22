@@ -16,7 +16,7 @@ that works and stick with that tag.
   prior
   - Therefore these versions of the Static Pages plugin are only compatible up
     to (and including) ONI v0.11.0
-- Static Pages releases beyond v2.0.2 require Python 3 and Django 2.2.  If you
+- Static Pages releases starting at v3.0.0 require Python 3 and Django 2.2.  If you
   need this plugin to work with ONI v0.11.0 or prior, stick with v2.0.2.
 
 Usage
