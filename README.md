@@ -7,7 +7,7 @@ serve them up at an arbitrary URL
 Compatibility
 ---
 
-The "master" branch should not be considered stable.  Unlike the core Open ONI
+The "main" branch should not be considered stable.  Unlike the core Open ONI
 repository, plugins don't warrant the extra overhead of having separate
 development branches, release branches, etc.  Instead, it is best to find a tag
 that works and stick with that tag.
