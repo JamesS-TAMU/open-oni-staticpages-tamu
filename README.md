@@ -48,13 +48,13 @@ like, but we use `static/` below:
 ```python
 # onisite/urls.py
 
-from django.conf.urls import url, include
+from django.urls import include, path, re_pathfrom django.conf.urls import url, include
 
 urlpatterns = [
-  url(r'^static/', include("onisite.plugins.staticpages.urls")),
+  re_path(r'^static/', include("onisite.plugins.staticpages.urls")),
 
   # keep this last or else urls from core may override custom urls
-  url('', include("core.urls")),
+  path('', include("core.urls")),
 ]
 ```
 

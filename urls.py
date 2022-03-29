@@ -1,7 +1,7 @@
-from django.conf.urls import url, include
+from django.urls import include, path, re_path
 from onisite.plugins.staticpages import views
 
 urlpatterns = [
-    url(r'^(?P<pagename>[\w-]+/?)$', views.page, name="static_pages_page"),
-    url(r'^(?P<subdir>[\w-]+)/(?P<pagename>[\w-]+/?)$', views.subpage, name="static_pages_subpage"),
+    re_path(r'^(?P<pagename>[\w-]+/?)$', views.page, name="static_pages_page"),
+    re_path(r'^(?P<subdir>[\w-]+)/(?P<pagename>[\w-]+/?)$', views.subpage, name="static_pages_subpage"),
 ]
